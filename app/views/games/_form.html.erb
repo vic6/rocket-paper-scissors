@@ -1,17 +1,6 @@
-<%= form_for(@game) do |f| %>
-  <% if @game.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
-
-      <ul>
-      <% @game.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for(@game, html: { class: 'form-inline new_game' }) do |f| %>
+    <%= f.hidden_field :user_throw, value: throw %>
+    <button class="btn btn-<%= throw_color(throw) %> btn-lg">
+        <i class="fa fa-5x fa-<%= throw %>"></i>
+      </button>
 <% end %>

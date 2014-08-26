@@ -10,6 +10,31 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe GamesHelper, :type => :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+describe GamesHelper do
+  describe "#winner_action" do
+    context "when winner throw is paper-plane" do
+      before do
+        assign(:winner_throw, 'paper-plane')
+      end
+
+      it "returns confuses when loser threw rocket" do
+        assign(:loser_throw, 'rocket')
+        expect(helper.winner_action).to eq("confuses")
+      end
+    end
+
+    context "when winner throw is scissors" do
+      pending
+    end
+
+    context "when winner throw is rocket" do
+      pending
+    end
+  end
+
+  describe "#throw_color" do
+    pending
+  end
+
 end
