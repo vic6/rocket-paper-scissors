@@ -46,8 +46,14 @@ Go in the following order:
 ### Release 2: Implement pending tests
 Implement the tests marked as pending
 
-### Release 3: Fix integration tests
-**Coming soon!**
+### Release 3: Implement integration tests
+Implement the feature tests in `spec/features`.
+
+### Release 4: Ties!
+
+Did you notice that the game doesn't handle ties?
+
+Using BDD, implement the logic to handle a tie.
 
 ## Resources
 
