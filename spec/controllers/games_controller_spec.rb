@@ -4,9 +4,7 @@ describe GamesController do
   let!(:game) { Game.create!(user_throw: Game::THROWS.sample) }
 
   describe "GET #index" do
-    it "assigns all games as @games" do
-      pending
-    end
+    it "assigns all games as @games"
   end
 
   describe "GET #show" do
@@ -15,13 +13,9 @@ describe GamesController do
       expect(assigns(:game)).to eq(game)
     end
 
-    it "assigns winner throw" do
-      pending
-    end
+    it "assigns winner throw"
 
-    it "assigns loser throw" do
-      pending
-    end
+    it "assigns loser throw"
   end
 
   describe "GET #new" do
@@ -30,27 +24,17 @@ describe GamesController do
 
   describe "POST create" do
     context "when valid params are passed" do
-      it "creates a new Game" do
-        pending
-      end
+      it "creates a new Game"
 
-      it "assigns a newly created game as @game" do
-        pending
-      end
+      it "assigns a newly created game as @game"
 
-      it "redirects to the created game" do
-        pending
-      end
+      it "redirects to the created game"
     end
 
     context "when invalid params are passed" do
-      it "assigns a newly created but unsaved game as @game" do
-        pending
-      end
+      it "assigns a newly created but unsaved game as @game"
 
-      it "re-renders the 'new' template" do
-        pending
-      end
+      it "re-renders the 'new' template"
     end
   end
 
@@ -62,13 +46,11 @@ describe GamesController do
 
     it "destroys the requested game" do
       expect {
-        delete :destory, id: game.id
+        delete :destroy, id: game.id
       }.to change(Game, :count).by(-1)
     end
 
-    it "redirects to the games list" do
-      pending
-    end
+    it "redirects to the games list"
   end
 
 end
