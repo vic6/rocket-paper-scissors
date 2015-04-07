@@ -46,7 +46,7 @@ describe GamesController do
 
     it "destroys the requested game" do
       expect {
-        delete :destory, id: game.id
+        delete :destroy, id: game.id
       }.to change(Game, :count).by(-1)
     end
 
