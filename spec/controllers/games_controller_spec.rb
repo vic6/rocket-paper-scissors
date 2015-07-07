@@ -22,7 +22,7 @@ describe GamesController do
     pending
   end
 
-  describe "POST create" do
+  describe "POST #create" do
     context "when valid params are passed" do
       it "creates a new Game"
 
