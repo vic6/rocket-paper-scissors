@@ -23,16 +23,19 @@ describe Game do
 
     describe "validations" do
       it "is valid when it's rocket" do
+        game.computer_throw = 'rocket'
         game.valid?
         expect(game.errors[:computer_throw]).to be_empty
       end
 
       it "is valid when it's paper-plane" do
+        game.computer_throw = 'paper-plane'
         game.valid?
         expect(game.errors[:computer_throw]).to be_empty
       end
 
       it "is valid when it's scissors" do
+        game.computer_throw = 'scissors'
         game.valid?
         expect(game.errors[:computer_throw]).to be_empty
       end
