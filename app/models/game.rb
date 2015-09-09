@@ -13,8 +13,8 @@ class Game < ActiveRecord::Base
   validates :winner, presence: true,
     inclusion: { in: PLAYERS, message: "%{value} is not a valid player" }
 
-  before_validation :set_computer_throw, only: :create
-  before_validation :determine_winner, only: :create
+  before_validation :set_computer_throw, on: :create
+  before_validation :determine_winner, on: :create
 
   def determine_winner
     return winner if PLAYERS.include?(winner)
