@@ -9,7 +9,7 @@ describe GamesController do
 
   describe "GET #show" do
     it "assigns the requested game as @game" do
-      get :show, { id: game.to_param }
+      get :show, { id: game.id }
       expect(assigns(:game)).to eq(game)
     end
 
@@ -41,7 +41,7 @@ describe GamesController do
   describe "DELETE #destroy" do
 
     it "assigns the requested game as @game" do
-      delete :destroy, { id: game.to_param }
+      delete :destroy, { id: game.id }
       expect(assigns(:game)).to eq(game)
     end
 
