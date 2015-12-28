@@ -22,7 +22,7 @@ Can you help us by fixing them?
 ### Constraints
 
 1. You are not allowed to edit existing views 
-2. You are not allowed to modify existing tests, except when removing `pending` to complete the implementation
+2. You are not allowed to modify existing tests
 
 ### Release 0: Run it
 
@@ -75,7 +75,7 @@ expect(assigns(:game)).to be_a(Game) #Check if it's a Game
 ```
 
 ### Release 2: Implement pending tests
-Implement the tests marked as pending
+Implement test sections marked as `pending`, and implement tests that are labeled with `skip` (you'll need to change `skip` to `it` if you want them to run).
 
 ### Release 3: Implement integration tests
 Implement the feature tests in `spec/features`.

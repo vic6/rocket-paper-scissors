@@ -8,10 +8,10 @@ describe Game do
   end
 
   describe "#throw_for_computer!" do
-    xit "sets computer_throw" do
+    skip "sets computer_throw" do
     end
 
-    xit "only sets the computer_throw once" do
+    skip "only sets the computer_throw once" do
     end
   end
 
@@ -54,7 +54,7 @@ describe Game do
       expect(game.winner).to be_truthy
     end
 
-    xit "only sets the winner once" do
+    skip "only sets the winner once" do
     end
 
     describe "validations" do
