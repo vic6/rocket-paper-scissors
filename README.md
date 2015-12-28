@@ -78,9 +78,33 @@ expect(assigns(:game)).to be_a(Game) #Check if it's a Game
 Implement test sections marked as `pending`, and implement tests that are labeled with `skip` (you'll need to change `skip` to `it` if you want them to run).
 
 ### Release 3: Implement integration tests
-Implement the feature tests in `spec/features`.
+Implement the feature tests in `spec/features`. Feature tests mimic an actual user visiting your site and clicking on things.
 
-Check the [Capybara docs](https://github.com/jnicklas/capybara) to see the API available to you.
+#### A quick note on mocks
+We want to test situations that depend on the computer or user winning, which means we can't let the computer throw be random, we need to force a certain outcome.
+
+It's not uncommon to want to override or force certain behavior in tests, and one way to do this is with "mocking."
+
+Let's say we gave a game, and we want to make sure the computer always throws "scissors". In Rspec, we could do this:
+
+```ruby
+game = Game.new(user_throw: 'rocket')
+allow(game).to receive(:computer_throw).and_return('scissors')
+```
+
+The example above says "hey, if someone calls the method `#computer_throw` on my `game` object, don't actually run it — instead just return `scissors`."
+
+This is particularly useful when you have code that has random behavior (like randomly choosing a throw for the computer). You can't write reliable tests if your code has random behavior, so we force it into a certain state using mocks.
+
+In the case of your feature tests, you need to make sure the computer makes a certain throw if you're going to test a losing case vs a winning case. Since the feature doesn't have access to the game object we will override (or "mock out") any call to `computer_throw` on any instance of `Game` like this.
+
+```ruby
+allow_any_instance_of(Game).to receive(:computer_throw).and_return('paper-plane')
+```
+
+What's above is just an example, but use something like it in your feature tests to force instances of `Game` to have a specific outcome.
+
+That covers the computer side, but you'll need to fake out a user clicking on things to set the user throw. Check the [Capybara docs](https://github.com/jnicklas/capybara) to see the API available to you.
 
 ### Release 4: Ties!
 
