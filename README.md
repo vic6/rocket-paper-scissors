@@ -80,6 +80,8 @@ Implement test sections marked as `pending`, and implement tests that are labele
 ### Release 3: Implement integration tests
 Implement the feature tests in `spec/features`.
 
+Check the [Capybara docs](https://github.com/jnicklas/capybara) to see the API available to you.
+
 ### Release 4: Ties!
 
 Did you notice that the game doesn't handle ties?
@@ -90,6 +92,6 @@ Using BDD, implement the logic to handle a tie.
 
 The following screencasts are HIGHLY recommended:
 
-- http://railscasts.com/episodes/257-request-specs-and-capybara
-- http://railscasts.com/episodes/275-how-i-test
+ - http://railscasts.com/episodes/257-request-specs-and-capybara
+ - http://railscasts.com/episodes/275-how-i-test
 
