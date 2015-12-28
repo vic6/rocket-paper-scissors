@@ -39,6 +39,7 @@ describe GamesController do
   end
 
   describe "DELETE #destroy" do
+
     it "assigns the requested game as @game" do
       delete :destroy, { id: game.to_param }
       expect(assigns(:game)).to eq(game)
