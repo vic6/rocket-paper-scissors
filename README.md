@@ -44,7 +44,7 @@ Some of the methods in `games_controller_spec.rb` will be new to you. Let's talk
 
 ##### `get`, `post`, `put`, `delete`
 
-rails-rspec includes some helpers to help you run your controller actions and test them. For example, `get` issues a GET request against your app.
+rails-rspec includes some helpers to help you run your controller actions and test them. For example, `get` issues a GET request to your Rails app, allowing you to test what happens when a certain controller action runs.
 
 The first argument to these helpers is the method on the controller that should be run. The second argument is a hash that will become the `params` hash.
 
