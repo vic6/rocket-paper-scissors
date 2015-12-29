@@ -13,40 +13,43 @@ class Game < ActiveRecord::Base
   validates :winner, presence: true,
     inclusion: { in: PLAYERS, message: "%{value} is not a valid player" }
 
-  before_validation :set_computer_throw, on: :create
-  before_validation :determine_winner, on: :create
+  before_validation :throw_for_computer!, on: :create
 
-  def determine_winner
-    return winner if PLAYERS.include?(winner)
-
-    if first_wins?(computer_throw, user_throw)
-      self.winner = 'computer'
+  def winner
+    if throw_beats?(computer_throw, user_throw)
+      'computer'
     else
-      self.winner = 'user'
+      'user'
     end
-
-    return winner
   end
 
   def winner_throw
-    send("#{winner}_throw")
+    case winner
+    when "user"
+      user_throw
+    when "computer"
+      computer_throw
+    end
   end
 
   def loser_throw
-    return user_throw if winner == 'computer'
-    return computer_throw if winner == 'user'
+    case winner
+    when "user"
+      computer_throw
+    when "computer"
+      user_throw
+    end
   end
 
-  private
-
-  def set_computer_throw
+  def throw_for_computer!
     self.computer_throw ||= THROWS.sample
   end
 
-  def first_wins?(throw1, throw2)
-    return true if throw1 == 'paper-plane' && throw2 == 'rocket'
-    return true if throw1 == 'scissors' && throw2 == 'paper-plane'
-    return true if throw1 == 'rocket' && throw2 == 'scissors'
+  private
+  def throw_beats?(first_throw, other_throw)
+    return true if first_throw == 'paper-plane' && other_throw == 'rocket'
+    return true if first_throw == 'scissors' && other_throw == 'paper-plane'
+    return true if first_throw == 'rocket' && other_throw == 'scissors'
     false
   end
 end
