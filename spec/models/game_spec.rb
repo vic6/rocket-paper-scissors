@@ -48,21 +48,6 @@ describe Game do
   end
 
   describe "#winner" do
-    it "sets a winner when saved" do
-      game.user_throw = 'rocket'
-      game.save
-      expect(game.winner).to be_truthy
-    end
-
-    skip "only sets the winner once" do
-    end
-
-    describe "validations" do
-      pending
-    end
-  end
-
-  describe "#winner" do
     context "when computer_throw is paper-plane" do
       before do
         game.computer_throw = 'paper-plane'
@@ -84,6 +69,10 @@ describe Game do
     end
 
     context "when computer throws scissors" do
+      pending
+    end
+
+    describe "validations" do
       pending
     end
   end
