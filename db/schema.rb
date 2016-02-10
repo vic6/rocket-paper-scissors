@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20140826064124) do
   create_table "games", force: true do |t|
     t.string   "computer_throw"
     t.string   "user_throw"
-    t.string   "winner"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
