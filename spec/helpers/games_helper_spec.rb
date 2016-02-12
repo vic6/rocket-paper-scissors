@@ -37,4 +37,8 @@ describe GamesHelper do
     pending
   end
 
+  describe "#throw_fa_icon" do
+    pending
+  end
+
 end
