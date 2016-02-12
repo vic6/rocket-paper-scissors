@@ -13,8 +13,8 @@ module GamesHelper
   end
 
   def throw_fa_icon(throw)
-    return "fa-rocket" if throw == "rocket"
-    return "fa-paper-plane" if throw == "paper-plane"
-    return "fa-scissors" if throw == "scissors"
+    return "fa-hand-rock-o" if throw == "rocket"
+    return "fa-hand-stop-o" if throw == "paper-plane"
+    return "fa-hand-scissors-o" if throw == "scissors"
   end
 end
