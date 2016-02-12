@@ -18,8 +18,8 @@ describe GamesHelper do
         assign(:winner_throw, 'paper-plane')
       end
 
-      it "returns confuses when loser threw rocket" do
-        assign(:loser_throw, 'rocket')
+      it "returns confuses when loser threw rock" do
+        assign(:loser_throw, 'rock')
         expect(helper.winner_action).to eq("confuses")
       end
     end
@@ -28,7 +28,7 @@ describe GamesHelper do
       pending
     end
 
-    context "when winner throw is rocket" do
+    context "when winner throw is rock" do
       pending
     end
   end
