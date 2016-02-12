@@ -23,8 +23,8 @@ describe Game do
         expect(game.errors[:computer_throw]).to be_empty
       end
 
-      it "is valid when it's paper-plane" do
-        game.computer_throw = 'paper-plane'
+      it "is valid when it's paper" do
+        game.computer_throw = 'paper'
         game.valid?
         expect(game.errors[:computer_throw]).to be_empty
       end
@@ -48,9 +48,9 @@ describe Game do
   end
 
   describe "#winner" do
-    context "when computer_throw is paper-plane" do
+    context "when computer_throw is paper" do
       before do
-        game.computer_throw = 'paper-plane'
+        game.computer_throw = 'paper'
       end
 
       it "determines computer won if user_throw is rock" do

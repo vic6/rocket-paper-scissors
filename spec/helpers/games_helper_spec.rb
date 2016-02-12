@@ -13,9 +13,9 @@ require 'rails_helper'
 
 describe GamesHelper do
   describe "#winner_action" do
-    context "when winner throw is paper-plane" do
+    context "when winner throw is paper" do
       before do
-        assign(:winner_throw, 'paper-plane')
+        assign(:winner_throw, 'paper')
       end
 
       it "returns confuses when loser threw rock" do
