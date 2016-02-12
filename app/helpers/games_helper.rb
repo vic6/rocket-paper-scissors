@@ -1,9 +1,9 @@
 module GamesHelper
 
   def winner_action
-    return "confuses" if @winner_throw == 'paper' && @loser_throw == 'rock'
+    return "covers" if @winner_throw == 'paper' && @loser_throw == 'rock'
     return "cut" if @winner_throw == 'scissors' && @loser_throw == 'paper'
-    return "melts" if @winner_throw == 'rock' && @loser_throw == 'scissors'
+    return "crushes" if @winner_throw == 'rock' && @loser_throw == 'scissors'
   end
 
   def throw_color(throw)

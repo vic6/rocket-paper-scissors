@@ -18,9 +18,9 @@ describe GamesHelper do
         assign(:winner_throw, 'paper')
       end
 
-      it "returns confuses when loser threw rock" do
+      it "returns covers when loser threw rock" do
         assign(:loser_throw, 'rock')
-        expect(helper.winner_action).to eq("confuses")
+        expect(helper.winner_action).to eq("covers")
       end
     end
 
