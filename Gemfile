@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 4.5.0'
 
 group :development do
   gem 'spring'
