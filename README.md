@@ -10,6 +10,8 @@
 
 This is a rock, paper, scissors application.  The user chooses to throw rock, paper, or scissors.  Then the computer throws a random shape, and we determine a winner.
 
+How do we determine if the user or the computer is the winner?  It depends on who throws which shape.  Rock crushes scissors, paper covers rock, and scissors cut paper.  So, if the user throws scissors and the computer throws paper, the user wins because scissors cut paper.
+
 This app works and is pretty spiffy, but we have a bunch of untested
 code and a bunch of tests that are failing.
 
