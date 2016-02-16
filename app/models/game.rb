@@ -1,7 +1,7 @@
 class Game < ActiveRecord::Base
   scope :recent, -> { order("created_at DESC").limit(5) }
 
-  THROWS = %w(rocket paper-plane scissors)
+  THROWS = %w(rock paper scissors)
   PLAYERS = %w(user computer)
 
   validates :computer_throw, presence: true,
@@ -47,9 +47,9 @@ class Game < ActiveRecord::Base
 
   private
   def throw_beats?(first_throw, other_throw)
-    return true if first_throw == 'paper-plane' && other_throw == 'rocket'
-    return true if first_throw == 'scissors' && other_throw == 'paper-plane'
-    return true if first_throw == 'rocket' && other_throw == 'scissors'
+    return true if first_throw == 'paper' && other_throw == 'rock'
+    return true if first_throw == 'scissors' && other_throw == 'paper'
+    return true if first_throw == 'rock' && other_throw == 'scissors'
     false
   end
 end

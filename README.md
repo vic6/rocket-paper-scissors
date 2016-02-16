@@ -1,4 +1,4 @@
-# Rocket, Paper-plane, Scissors Challenge!
+# Rock, Paper, Scissors!
 
 ## Learning Objectives
 - using Rspec with Rails
@@ -8,9 +8,9 @@
 
 ## Summary
 
-This is a little variation on rock, paper, scissors.  The user gets
-to choose Rocket, Paper-plane, or Scissors.  Then the computer
-randomly "throws" and we determine a winner.
+This is a rock, paper, scissors application.  The user chooses to throw rock, paper, or scissors.  Then the computer throws a random shape, and we determine a winner.
+
+How do we determine if the user or the computer is the winner?  It depends on who throws which shape.  Rock crushes scissors, paper covers rock, and scissors cut paper.  So, if the user throws scissors and the computer throws paper, the user wins because scissors cut paper.
 
 This app works and is pretty spiffy, but we have a bunch of untested
 code and a bunch of tests that are failing.
@@ -88,7 +88,7 @@ It's not uncommon to want to override or force certain behavior in tests, and on
 Let's say we gave a game, and we want to make sure the computer always throws "scissors". In Rspec, we could do this:
 
 ```ruby
-game = Game.new(user_throw: 'rocket')
+game = Game.new(user_throw: 'rock')
 allow(game).to receive(:computer_throw).and_return('scissors')
 ```
 
@@ -99,7 +99,7 @@ This is particularly useful when you have code that has random behavior (like ra
 In the case of your feature tests, you need to make sure the computer makes a certain throw if you're going to test a losing case vs a winning case. Since the feature doesn't have access to the game object we will override (or "mock out") any call to `computer_throw` on any instance of `Game` like this.
 
 ```ruby
-allow_any_instance_of(Game).to receive(:computer_throw).and_return('paper-plane')
+allow_any_instance_of(Game).to receive(:computer_throw).and_return('paper')
 ```
 
 What's above is just an example, but use something like it in your feature tests to force instances of `Game` to have a specific outcome.
