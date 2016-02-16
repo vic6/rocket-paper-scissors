@@ -1,11 +1,10 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show]
-
   def index
     @games = Game.all
   end
 
   def show
+    @game = Game.find(params[:id])
     @winner_throw = @game.winner_throw
     @loser_throw = @game.loser_throw
   end
@@ -29,11 +28,7 @@ class GamesController < ApplicationController
   end
 
   private
-    def set_game
-      @game = Game.find(params[:id])
-    end
-
-    def game_params
-      params.require(:game).permit(:user_throw)
-    end
+  def game_params
+    params.require(:game).permit(:user_throw)
+  end
 end

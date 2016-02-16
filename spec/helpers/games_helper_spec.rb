@@ -13,14 +13,14 @@ require 'rails_helper'
 
 describe GamesHelper do
   describe "#winner_action" do
-    context "when winner throw is paper-plane" do
+    context "when winner throw is paper" do
       before do
-        assign(:winner_throw, 'paper-plane')
+        assign(:winner_throw, 'paper')
       end
 
-      it "returns confuses when loser threw rocket" do
-        assign(:loser_throw, 'rocket')
-        expect(helper.winner_action).to eq("confuses")
+      it "returns covers when loser threw rock" do
+        assign(:loser_throw, 'rock')
+        expect(helper.winner_action).to eq("covers")
       end
     end
 
@@ -28,12 +28,16 @@ describe GamesHelper do
       pending
     end
 
-    context "when winner throw is rocket" do
+    context "when winner throw is rock" do
       pending
     end
   end
 
   describe "#throw_color" do
+    pending
+  end
+
+  describe "#throw_fa_icon" do
     pending
   end
 
