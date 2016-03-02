@@ -35,8 +35,8 @@ describe Game do
         expect(game.errors[:computer_throw]).to be_empty
       end
 
-      it "is NOT valid when it's rock" do
-        game.computer_throw = 'rock'
+      it "is NOT valid when it's pineapple" do
+        game.computer_throw = 'pineapple'
         game.valid?
         expect(game.errors[:computer_throw]).to_not be_empty
       end
