@@ -30,9 +30,9 @@ module GamesHelper
     return "crushes" if throw == 'rock'
   end
 
-  def passive_result_for(throw)
-    return "is covered by" if throw == 'paper'
-    return "is cut by" if throw == 'scissors'
-    return "is crushed by" if throw == 'rock'
+  def passive_result_for(opposing_throw)
+    return "is covered by" if opposing_throw == 'paper'
+    return "is cut by" if opposing_throw == 'scissors'
+    return "is crushed by" if opposing_throw == 'rock'
   end
 end
