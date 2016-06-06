@@ -27,6 +27,8 @@ We have a fully functional application—we're going to write tests for it.  Bef
 4. Start the application: `bundle exec rails server`
 5. Get a feel for the app by playing a few rounds.
 
+*Note:* As you explore the application, you might notice that ties aren't recorded as ties; we'll deal with this later.
+
 
 ### Release 0: Fix the existing tests
 We need to fix the Rails application so that the existing tests pass, but before you begin let's talk about a couple new things that rails-rspec introduces.
