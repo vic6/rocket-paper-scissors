@@ -30,8 +30,9 @@ We have a fully functional application—we're going to write tests for it.  Bef
 *Note:* As you explore the application, you might notice that ties aren't recorded as ties; we'll deal with this later.
 
 
-### Release 0: Fix the existing tests
-We need to fix the Rails application so that the existing tests pass, but before you begin let's talk about a couple new things that rails-rspec introduces.
+### Release 0: Implement pending tests
+Implement test sections marked as `pending`, and implement tests that are labeled with `skip` (you'll need to change `skip` to `it` if you want them to run).
+
 
 #### Constraints
 
@@ -75,10 +76,8 @@ expect(assigns(:game)).to_not be_nil #See if @game got set
 expect(assigns(:game)).to be_a(Game) #Check if it's a Game
 ```
 
-### Release 1: Implement pending tests
-Implement test sections marked as `pending`, and implement tests that are labeled with `skip` (you'll need to change `skip` to `it` if you want them to run).
 
-### Release 2: Implement integration tests
+### Release 1: Implement integration tests
 Implement the feature tests in `spec/features`. Feature tests mimic an actual user visiting your site and clicking on things.
 
 #### A quick note on mocks
@@ -107,7 +106,7 @@ What's above is just an example, but use something like it in your feature tests
 
 That covers the computer side, but you'll need to fake out a user clicking on things to set the user throw. Check the [Capybara docs](https://github.com/jnicklas/capybara) to see the API available to you.
 
-### Release 3: Ties!
+### Release 2: Ties!
 
 Did you notice that the game doesn't handle ties?
 
