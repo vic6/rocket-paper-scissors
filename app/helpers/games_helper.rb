@@ -1,9 +1,14 @@
 module GamesHelper
+  def headline(game)
+    game.user_won? ? "User Won!!!" : "User Lost"
+  end
 
-  def winner_action
-    return "covers" if @winner_throw == 'paper' && @loser_throw == 'rock'
-    return "cut" if @winner_throw == 'scissors' && @loser_throw == 'paper'
-    return "crushes" if @winner_throw == 'rock' && @loser_throw == 'scissors'
+  def result_for_user_throw(game)
+    if game.user_won?
+      active_result_for(game.user_throw)
+    else
+      passive_result_for(game.computer_throw)
+    end
   end
 
   def throw_color(throw)
@@ -16,5 +21,18 @@ module GamesHelper
     return "fa-hand-rock-o" if throw == "rock"
     return "fa-hand-stop-o" if throw == "paper"
     return "fa-hand-scissors-o" if throw == "scissors"
+  end
+
+  private
+  def active_result_for(throw)
+    return "covers" if throw == 'paper'
+    return "cut" if throw == 'scissors'
+    return "crushes" if throw == 'rock'
+  end
+
+  def passive_result_for(throw)
+    return "is covered by" if throw == 'paper'
+    return "is cut by" if throw == 'scissors'
+    return "is crushed by" if throw == 'rock'
   end
 end

@@ -12,7 +12,7 @@ require 'rails_helper'
 # end
 
 describe GamesHelper do
-  describe "#winner_action" do
+  describe "#result_for_user_throw" do
     context "when winner throw is paper" do
       before do
         assign(:winner_throw, 'paper')
@@ -20,7 +20,7 @@ describe GamesHelper do
 
       it "returns covers when loser threw rock" do
         assign(:loser_throw, 'rock')
-        expect(helper.winner_action).to eq("covers")
+        expect(helper.result_for_user_throw).to eq("covers")
       end
     end
 
