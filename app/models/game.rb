@@ -34,6 +34,10 @@ class Game < ActiveRecord::Base
     self.computer_throw ||= THROWS.sample
   end
 
+  def user_won?
+    user_throw_beats_computer_throw?
+  end
+
   private
   def user_throw_beats_computer_throw?
     return true if user_throw == 'paper' && computer_throw == 'rock'
@@ -41,6 +45,4 @@ class Game < ActiveRecord::Base
     return true if user_throw == 'rock' && computer_throw == 'scissors'
     false
   end
-
-  alias_method :user_won?, :user_throw_beats_computer_throw?
 end

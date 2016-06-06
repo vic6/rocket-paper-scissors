@@ -94,4 +94,8 @@ describe Game do
 
     it "returns the computer throw when the user wins"
   end
+
+  describe "#user_won?" do
+    pending
+  end
 end
