@@ -35,7 +35,15 @@ We have a fully functional application—we're going to write tests for it.  Bef
 *Note:* As you explore the application, you might notice that ties aren't recorded as ties; we'll deal with this later.
 
 
-### Release 0: Routing Specs
+### Release 0: Model Specs
+Our test suite contains a mixture of passing tests and pending tests.  We're going to work through all of the pending tests, writing them out so that they describe how our application behaves.  We've been working with model specs throughout our time at Dev Bootcamp, so we'll begin this challenge by completing the tests for our `Game` model (see `app/models/game.rb`).  The model includes a number of custom behaviors for which we need to write tests:  one class method and a handful of instance methods.
+
+Model specs are saved in the `spec/models` directory where we'll see some tests already written in the file `spec/models/game_spec.rb`.  Some are passing, and some are pending.  Write out the pending tests to describe the behaviors of the `Game` model.
+
+Run the model specs with `bundle exec rake spec:models`.
+
+
+### Release 1: Routing Specs
 Routing specs test whether or not making an HTTP request to a path results in running a specific controller action.  For example, if we make a GET request to `/games`, we expect to run the `games#index` action.
 
 [Routing specs][] are saved in the `spec/routing` directory.  Looking there in our application, we'll see that routing tests for games have been written.  Read the tests.  Do we understand what they are testing?  Notice that they make use of the `route_to` matcher, which is part of `rspec-rails`.
@@ -45,7 +53,7 @@ Run the routing specs:  `bundle exec rake spec:routing`.
 The tests for the games routes are passing, but we have one pending test that we need to write ourselves.  What controller action is run when we visit the root path?  Write the test to describe which action is run when visiting the root path and then update the test description.
 
 
-### Release 1: Implement pending tests
+### Release 2: Implement pending tests
 Implement test sections marked as `pending`, and implement tests that are labeled with `skip` (you'll need to change `skip` to `it` if you want them to run).
 
 
@@ -92,7 +100,7 @@ expect(assigns(:game)).to be_a(Game) #Check if it's a Game
 ```
 
 
-### Release 2: Implement integration tests
+### Release 3: Implement integration tests
 Implement the feature tests in `spec/features`. Feature tests mimic an actual user visiting your site and clicking on things.
 
 #### A quick note on mocks
@@ -121,7 +129,7 @@ What's above is just an example, but use something like it in your feature tests
 
 That covers the computer side, but you'll need to fake out a user clicking on things to set the user throw. Check the [Capybara docs](https://github.com/jnicklas/capybara) to see the API available to you.
 
-### Release 3: Ties!
+### Release 4: Ties!
 
 Did you notice that the game doesn't handle ties?
 
