@@ -17,6 +17,11 @@ code and a bunch of tests that are failing.
 
 Can you help us by fixing them?
 
+
+### Testing Configuration
+Our application's testing setup has been configured to differ from the Rails convention.  We're testing our application with RSpec rather than the default Test Unit.  Our app uses the [rspec-rails][rspec-rails] gem, which provides some methods and RSpec matchers specific to testing a Rails app.  We also use [Capybara][].
+
+
 ## Releases
 ### Pre-release: Run the Application
 We have a fully functional application—we're going to write tests for it.  Before we begin testing the application, let's explore how it works.
@@ -118,4 +123,8 @@ The following screencasts are HIGHLY recommended:
 
  - http://railscasts.com/episodes/257-request-specs-and-capybara
  - http://railscasts.com/episodes/275-how-i-test
+
+
+[rspec-rails]: https://github.com/rspec/rspec-rails
+[capybara]: https://github.com/jnicklas/capybara
 
