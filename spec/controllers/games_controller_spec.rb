@@ -39,12 +39,6 @@ describe GamesController do
   end
 
   describe "DELETE #destroy" do
-
-    it "assigns the requested game as @game" do
-      delete :destroy, { id: game.id }
-      expect(assigns(:game)).to eq(game)
-    end
-
     it "destroys the requested game" do
       expect {
         delete :destroy, id: game.id
