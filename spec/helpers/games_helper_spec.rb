@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the GamesHelper. For example:
+# the GamesHelper module. For example:
 #
 # describe GamesHelper do
 #   describe "string concat" do
@@ -11,24 +11,30 @@ require 'rails_helper'
 #   end
 # end
 
+
 describe GamesHelper do
+  describe "#headline" do
+    it "states that the user won when the user won the game" do
+      game = Game.new(user_throw: "paper", computer_throw: "rock")
+
+      expect(helper.headline(game)).to eq "User Won!!!"
+    end
+
+    it "states that the user lost when the computer won the game" do
+      game = Game.new(user_throw: "paper", computer_throw: "scissors")
+
+      expect(helper.headline(game)).to eq "User Lost"
+    end
+  end
+
   describe "#result_for_user_throw" do
-    context "when winner throw is paper" do
-      before do
-        assign(:winner_throw, 'paper')
-      end
-
-      it "returns covers when loser threw rock" do
-        assign(:loser_throw, 'rock')
-        expect(helper.result_for_user_throw).to eq("covers")
-      end
+    context "when the user won the game" do
+      it "returns 'covers' when the user threw paper"
+      it "returns 'cut' when the user threw scissors"
+      it "returns 'crushes' when the user threw rock"
     end
 
-    context "when winner throw is scissors" do
-      pending
-    end
-
-    context "when winner throw is rock" do
+    context "when the computer won the game" do
       pending
     end
   end
