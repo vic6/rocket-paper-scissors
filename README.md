@@ -56,7 +56,7 @@ Routing specs test whether or not making an HTTP request to a path results in ru
 
 [Routing specs][] are saved in the `spec/routing` directory.  Looking there in our application, we'll see that routing tests for games have been written.  Read the tests.  Do we understand what they are testing?  Notice that they make use of the `route_to` matcher, which is part of `rspec-rails`.
 
-Run the routing specs:  `bundle exec rake spec:routing`.
+Run the routing specs with `bundle exec rake spec:routing`.
 
 The tests for the games routes are passing, but we have one pending test that we need to write ourselves.  What controller action is run when we visit the root path?  Write the test to describe which action is run when visiting the root path and then update the test description.
 
