@@ -43,7 +43,15 @@ Model specs are saved in the `spec/models` directory where we'll see some tests 
 Run the model specs with `bundle exec rake spec:models`.
 
 
-### Release 1: Routing Specs
+### Release 1: Helper Specs
+Rails makes helper methods available to our views.  When we test helper methods, we test them as a mixin (i.e., a module that has been included in a class).  In helper specs, `rspec-rails` provides a `helper` object with the module's behaviors mixed in.  All we need to do is call the module's methods on the `helper` object and test their behaviors.
+
+[Helper specs][] are saved in the `spec/helpers` directory.  We have some tests written there for our `GamesHelper` module.  Read through the tests.  Write out the pending tests to describe the behaviors of the helper module's methods.
+
+Run the helper specs with `bundle exec rake spec:helpers`.
+
+
+### Release 2: Routing Specs
 Routing specs test whether or not making an HTTP request to a path results in running a specific controller action.  For example, if we make a GET request to `/games`, we expect to run the `games#index` action.
 
 [Routing specs][] are saved in the `spec/routing` directory.  Looking there in our application, we'll see that routing tests for games have been written.  Read the tests.  Do we understand what they are testing?  Notice that they make use of the `route_to` matcher, which is part of `rspec-rails`.
@@ -53,7 +61,7 @@ Run the routing specs:  `bundle exec rake spec:routing`.
 The tests for the games routes are passing, but we have one pending test that we need to write ourselves.  What controller action is run when we visit the root path?  Write the test to describe which action is run when visiting the root path and then update the test description.
 
 
-### Release 2: Implement pending tests
+### Release 3: Implement pending tests
 Implement test sections marked as `pending`, and implement tests that are labeled with `skip` (you'll need to change `skip` to `it` if you want them to run).
 
 
@@ -100,7 +108,7 @@ expect(assigns(:game)).to be_a(Game) #Check if it's a Game
 ```
 
 
-### Release 3: Implement integration tests
+### Release 4: Implement integration tests
 Implement the feature tests in `spec/features`. Feature tests mimic an actual user visiting your site and clicking on things.
 
 #### A quick note on mocks
@@ -129,7 +137,7 @@ What's above is just an example, but use something like it in your feature tests
 
 That covers the computer side, but you'll need to fake out a user clicking on things to set the user throw. Check the [Capybara docs](https://github.com/jnicklas/capybara) to see the API available to you.
 
-### Release 4: Ties!
+### Release 5: Ties!
 
 Did you notice that the game doesn't handle ties?
 
@@ -143,6 +151,7 @@ The following screencasts are HIGHLY recommended:
  - http://railscasts.com/episodes/275-how-i-test
 
 
+[helper specs]: https://github.com/rspec/rspec-rails#helper-specs
 [routing specs]: https://github.com/rspec/rspec-rails#routing-specs
 [rspec-rails]: https://github.com/rspec/rspec-rails
 [capybara]: https://github.com/jnicklas/capybara
