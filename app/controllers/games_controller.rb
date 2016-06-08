@@ -1,12 +1,10 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.recent
   end
 
   def show
     @game = Game.find(params[:id])
-    @winner_throw = @game.winner_throw
-    @loser_throw = @game.loser_throw
   end
 
   def new

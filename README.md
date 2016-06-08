@@ -61,51 +61,50 @@ Run the routing specs with `bundle exec rake spec:routing`.
 The tests for the games routes are passing, but we have one pending test that we need to write ourselves.  What controller action is run when we visit the root path?  Write the test to describe which action is run when visiting the root path and then update the test description.
 
 
-### Release 3: Implement pending tests
-Implement test sections marked as `pending`, and implement tests that are labeled with `skip` (you'll need to change `skip` to `it` if you want them to run).
+### Release 3: Controller Specs
+Controller specs describe what happens when a controller action is run.  So, when a request leads to running the `GamesController#index` action, what does the controller do?
+
+In our controller specs we can describe a number of different behaviors from our controllers.  Which status code is sent back in the response?  Were any instance variables made available to the view?  Was the state of the database changed?  Was a template rendered or was the browser redirected to another page?  Were any values set in the session, cookies, or the flash?
+
+[Controller specs][] are saved in the `spec/controllers` directory.  There we'll see that tests for our `GamesController` have been written.  Write out the pending tests to describe the behaviors of the controller actions.
+
+Run the routing specs with `bundle exec rake spec:controllers`.
 
 
-#### Constraints
+***Controller Spec Helper Methods***  
+Methods are provided to facilitate testing our controllers.  We can see examples of these in `spec/controllers/games_controller_spec.rb`. We'll briefly cover a couple of them so we get started on the right foot.
 
-1. You are not allowed to edit existing views 
-2. You are not allowed to modify existing tests
+The `get`, `post`, `put`, and `delete` methods simulate HTTP requests to our Rails app, calling controller actions that we can then test.  The first argument to these helpers is the action of the controller that should be run (e.g., `:index`). The second argument is a hash to use as the `params` hash for the request, allowing us to, for example, simulate passing form data or provide an id for a resource.  (See Figure 1)
 
-
-#### rspec-rails Controller Helpers
-
-Some of the methods in `games_controller_spec.rb` will be new to you. Let's talk about a couple of them briefly just to get you started off on the right foot.
-
-##### `get`, `post`, `put`, `delete`
-
-rails-rspec includes some helpers to help you run your controller actions and test them. For example, `get` issues a GET request to your Rails app, allowing you to test what happens when a certain controller action runs.
-
-The first argument to these helpers is the method on the controller that should be run. The second argument is a hash that will become the `params` hash.
-
-Examples:
 
 ```ruby
-get(:show, {id: 37})
-```
+# Simulate a GET request to the GamesController#show action.
+# For this request, the params hash has the key "id" with value 37.
+# An actual request would be a GET request to "/games/37".
+get(:show, { id: 37 })
 
-This will perform a GET request running the method `show` on the controller, providing `{'id' => 37}` as the params. This means that `GamesController#show` will run and `params` will contain `{'id' => 37}`.
+# Simulate a POST request to the GamesController#create action.
+# For this request, the params hash has the key "game" whose value is a hash which has a key "user_throw" with the value "paper".
+# An actual request would be a POST request to "/games".
+post(:create, { game: { user_throw: "paper }})
+```
+*Figure 1.*  Helper methods simulate requests, allowing us to test our controllers.
+
+We use `get`, `post`, `put`, and `delete` to begin each test, but they don't describe our expectations.  There are other helper methods and [RSpec matchers][] that we'll use to actually describe the behaviors of our controllers.
+
+One of these methods is `assigns`, which lets us check what instance variables were assigned by a controller action. For example, we could test that the `GamesController#show` action assigns a specific game object to the instance variable `@game`.  We can see an example of this demonstrated in Figure 2.
 
 ```ruby
-post(:create, {first:'foo', last:'bar'})
+# When the GamesController#show action runs
+# the instance variable @game should be assigned 
+# to a specific game.
+it "assigns the correct game as @game" do
+  game = Game.create!(user_throw: "paper")
+  get :show, { id: game.id }
+  expect(assigns(:game)).to eq(game)
+end
 ```
-
-This will perform a POST to the method `create` and set the `params` hash to `{'first' => 'foo', 'last' => 'bar'}` inside the `create` method.
-
-##### `assigns`
-
-`assigns` is a helper in Rspec that lets you check what instance variables got assigned by a controller action. For example, I might run `get(:show, {id: 1})` to run my `GamesController#show` action, then check what instance variables got assigned and what their values are.
-
-In this case of `GamesController#show`, I probably want to make sure `@game` got assigned to a game. I could say:
-
-```ruby
-get(:show, {id: some_game_id}) #do a GET request to #show
-expect(assigns(:game)).to_not be_nil #See if @game got set
-expect(assigns(:game)).to be_a(Game) #Check if it's a Game
-```
+*Figure 2.*  Checking the value of an instance variable assigned by a controller action.
 
 
 ### Release 4: Implement integration tests
@@ -151,8 +150,10 @@ The following screencasts are HIGHLY recommended:
  - http://railscasts.com/episodes/275-how-i-test
 
 
+[controller specs]: https://github.com/rspec/rspec-rails#controller-specs
 [helper specs]: https://github.com/rspec/rspec-rails#helper-specs
 [routing specs]: https://github.com/rspec/rspec-rails#routing-specs
+[rspec matchers]: https://github.com/rspec/rspec-rails#matchers
 [rspec-rails]: https://github.com/rspec/rspec-rails
 [capybara]: https://github.com/jnicklas/capybara
 
