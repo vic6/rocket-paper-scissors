@@ -146,16 +146,20 @@ This is an example, but we'll use something like it in our feature tests to forc
 ### Release 5: Handle Ties
 As mentioned in the *Pre-release* section, our application doesn't handle ties well; it declares a winner, even if the game was a tie.  Using *behavior-driven development*, implement the logic to handle a tie.  How ties are handled is up to us.
 
-## Resources
 
-The following screencasts are HIGHLY recommended:
+## Conclusion
+Testing is an important skill, so be sure to clear up questions we have about the content covered in this challenge.  It's also important to realize that individuals differ in their opinions about the relative values of each type of test.  Some people will value one type of test more than other people will.  We should leave this challenge with an understanding of what to test in each type of test and familiarity with how to write each type of test.
 
- - http://railscasts.com/episodes/257-request-specs-and-capybara
- - http://railscasts.com/episodes/275-how-i-test
+The following RailsCasts screencasts are highly recommended.
+
+ - [Request Specs and Capybara][railscasts capybara]
+ - [How I Test][railscasts how i test]
 
 
 [controller specs]: https://github.com/rspec/rspec-rails#controller-specs
 [helper specs]: https://github.com/rspec/rspec-rails#helper-specs
+[railscasts capybara]: http://railscasts.com/episodes/257-request-specs-and-capybara
+[railscasts how i test]: http://railscasts.com/episodes/275-how-i-test
 [routing specs]: https://github.com/rspec/rspec-rails#routing-specs
 [rspec matchers]: https://github.com/rspec/rspec-rails#matchers
 [rspec-rails]: https://github.com/rspec/rspec-rails
