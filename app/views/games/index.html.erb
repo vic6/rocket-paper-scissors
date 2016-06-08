@@ -12,7 +12,7 @@
 
 <p><strong><%= link_to 'New Game', new_game_path, class: 'btn btn-primary'  %></strong></p>
 
-<ul class="inline">
+<ul class="inline recent-games">
   <% @games.each do |game| %>
     <p>
       <%= "#{game.computer_throw} vs. #{game.user_throw}" %>

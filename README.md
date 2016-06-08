@@ -68,7 +68,7 @@ In our controller specs we can describe a number of different behaviors from our
 
 [Controller specs][] are saved in the `spec/controllers` directory.  There we'll see that tests for our `GamesController` have been written.  Write out the pending tests to describe the behaviors of the controller actions.
 
-Run the routing specs with `bundle exec rake spec:controllers`.
+Run the controller specs with `bundle exec rake spec:controllers`.
 
 
 ***Controller Spec Helper Methods***  
@@ -107,34 +107,41 @@ end
 *Figure 2.*  Checking the value of an instance variable assigned by a controller action.
 
 
-### Release 4: Implement integration tests
-Implement the feature tests in `spec/features`. Feature tests mimic an actual user visiting your site and clicking on things.
+### Release 4: Feature Specs
+Feature specs mimic an actual user visiting our site and using our application.  Each feature spec describes a user interacting with our application through the browser for a specific purpose (e.g., registering a new account).  In our application, we might have feature tests for seeing a list of recent games on the homepage, playing a new game, deleting a game, etc.
 
-#### A quick note on mocks
-We want to test situations that depend on the computer or user winning, which means we can't let the computer throw be random, we need to force a certain outcome.
+Feature specs are saved in the `spec/features` directory.  We have a few different files, each describing a different feature of our application.  Write out the pending tests to describe how our application works as users interact with it.
 
-It's not uncommon to want to override or force certain behavior in tests, and one way to do this is with "mocking."
+Run the feature specs with `bundle exec rake spec:features`.
 
-Let's say we gave a game, and we want to make sure the computer always throws "scissors". In Rspec, we could do this:
+***Capybara for Feature Specs***  
+`rspec-rails` provides us with methods and matchers for testing many parts of our Rails apps, but when it comes to writing feature specs, we'll rely on the [Capybara][] gem.  Capybara provides both methods for simulating a user interacting with our site (e.g., `visit`, `click_link`) and also additional RSpec matchers (e.g., `have_content`).  Read through the docs to discover what all is available to us.
 
-```ruby
-game = Game.new(user_throw: 'rock')
-allow(game).to receive(:computer_throw).and_return('scissors')
-```
 
-The example above says "hey, if someone calls the method `#computer_throw` on my `game` object, don't actually run it — instead just return `scissors`."
+***Controlling Objects' Behaviors in Tests***  
+When we test how our application behaves when a user plays a game, we'll test what happens with a user wins and when a user loses.  When we create the new game, we can control the user throw by what we click on.  But that doesn't control the computer throw.
 
-This is particularly useful when you have code that has random behavior (like randomly choosing a throw for the computer). You can't write reliable tests if your code has random behavior, so we force it into a certain state using mocks.
+If our tests rely on the user winning or losing, we can't let the computer throw be random.  If the user throws "paper" and we're testing what happens when the user wins the game, then we need to ensure that the computer throws "rock".  Needing to force certain outcomes in tests is not uncommon.  And to get the outcomes that we want, we can override certain behaviors in our tests.
 
-In the case of your feature tests, you need to make sure the computer makes a certain throw if you're going to test a losing case vs a winning case. Since the feature doesn't have access to the game object we will override (or "mock out") any call to `computer_throw` on any instance of `Game` like this.
+Let's say we have a specific `Game` object available in a test, and we want to make sure the computer throw for that game is always "scissors".  With RSpec, we could do this:
 
 ```ruby
-allow_any_instance_of(Game).to receive(:computer_throw).and_return('paper')
+game = Game.new(user_throw: "rock")
+allow(game).to receive(:computer_throw).and_return("scissors")
 ```
 
-What's above is just an example, but use something like it in your feature tests to force instances of `Game` to have a specific outcome.
+This example says, "Hey, if someone calls the method `#computer_throw` on the `game` object, don't actually run the method—instead just return `"scissors"`."
 
-That covers the computer side, but you'll need to fake out a user clicking on things to set the user throw. Check the [Capybara docs](https://github.com/jnicklas/capybara) to see the API available to you.
+This is particularly useful when we have code with random behavior, like randomly choosing a throw for the computer. We can't write reliable tests if our code has random behavior.  So, we force the outcome we want.
+
+In the case of our feature tests, if we're going to test a user winning and a user losing a game, we need to force a specific computer throw.  However, since the feature test won't have access to any specific `Game` object, we'll override any call to `computer_throw` on any instance of `Game` like this.
+
+```ruby
+allow_any_instance_of(Game).to receive(:computer_throw).and_return("paper")
+```
+
+This is an example, but we'll use something like it in our feature tests to force instances of `Game` to have a specific outcome.
+
 
 ### Release 5: Ties!
 
