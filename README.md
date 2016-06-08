@@ -1,15 +1,13 @@
 # Rock, Paper, Scissors!
 
 ## Summary
+We going to build a test suite for an already functioning Rails application.  We'll learn to test the different parts of a Rails app—both what to test and how to test them.  While we normally encourage a test-first approach, in this challenge, we'll be learning to write tests by documenting the behaviors of a working application.
 
-This is a rock, paper, scissors application.  The user chooses to throw rock, paper, or scissors.  Then the computer throws a random shape, and we determine a winner.
+The application allows users to play the game "Rock, Paper, Scissors".  The user chooses to throw rock, paper, or scissors; the computer makes a random throw; and we determine the winner.
 
 How do we determine if the user or the computer is the winner?  It depends on who throws which shape.  Rock crushes scissors, paper covers rock, and scissors cut paper.  So, if the user throws scissors and the computer throws paper, the user wins because scissors cut paper.
 
-This app works and is pretty spiffy, but we have a bunch of untested
-code and a bunch of tests that are failing.
-
-Can you help us by fixing them?
+As was mentioned, the application does work, but we have a bunch of untested code.  Let's build up the test suite for our app.
 
 
 ### Testing Configuration
