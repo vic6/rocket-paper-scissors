@@ -143,11 +143,8 @@ allow_any_instance_of(Game).to receive(:computer_throw).and_return("paper")
 This is an example, but we'll use something like it in our feature tests to force instances of `Game` to have a specific outcome.
 
 
-### Release 5: Ties!
-
-Did you notice that the game doesn't handle ties?
-
-Using BDD, implement the logic to handle a tie.
+### Release 5: Handle Ties
+As mentioned in the *Pre-release* section, our application doesn't handle ties well; it declares a winner, even if the game was a tie.  Using *behavior-driven development*, implement the logic to handle a tie.  How ties are handled is up to us.
 
 ## Resources
 
