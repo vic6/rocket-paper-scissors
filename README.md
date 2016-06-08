@@ -1,11 +1,5 @@
 # Rock, Paper, Scissors!
 
-## Learning Objectives
-- using Rspec with Rails
-- familiarize yourself with rspec style
-- write code to fix tests
-- write tests to fix code
-
 ## Summary
 
 This is a rock, paper, scissors application.  The user chooses to throw rock, paper, or scissors.  Then the computer throws a random shape, and we determine a winner.
