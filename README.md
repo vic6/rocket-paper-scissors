@@ -14,6 +14,8 @@ As was mentioned, the application does work, but we have a bunch of untested cod
 ### Testing Configuration
 Our application's testing setup has been configured to differ from the Rails convention.  We're testing our application with RSpec rather than the Rails default, Minitest.  Our app uses the [rspec-rails][rspec-rails] gem, which provides methods and RSpec matchers specific to testing a Rails app.  We also use [Capybara][] which allows us to simulate a user interacting with our application in a browser and which provides its own set of methods and matchers.
 
+*Note:*  Capybara and rspec-rails are new to us.  We're not yet familiar with the methods and matchers they provide for testing a Rails app.  That's okay.  We'll begin to learn them in this challenge.
+
 
 ## Releases
 ### Pre-release: Run the Application
