@@ -143,18 +143,20 @@ As mentioned in the *Pre-release* section, our application doesn't handle ties w
 ## Conclusion
 Testing is an important skill, so be sure to clear up questions we have about the content covered in this challenge.  It's also important to realize that individuals differ in their opinions about the relative values of each type of test.  Some people will value one type of test more than other people will.  We should leave this challenge with an understanding of what to test in each type of test and familiarity with how to write each type of test.
 
-The following RailsCasts screencasts are highly recommended.
+There are many resources available for learning to test Rails apps, including books like [Everyday Rails Testing with RSpec][] and [Testing Rails][].  The following RailsCasts screencasts are highly recommended.
 
  - [Request Specs and Capybara][railscasts capybara]
  - [How I Test][railscasts how i test]
 
 
 [controller specs]: https://github.com/rspec/rspec-rails#controller-specs
+[everyday rails testing with rspec]: https://leanpub.com/everydayrailsrspec
 [helper specs]: https://github.com/rspec/rspec-rails#helper-specs
 [railscasts capybara]: http://railscasts.com/episodes/257-request-specs-and-capybara
 [railscasts how i test]: http://railscasts.com/episodes/275-how-i-test
 [routing specs]: https://github.com/rspec/rspec-rails#routing-specs
 [rspec matchers]: https://github.com/rspec/rspec-rails#matchers
 [rspec-rails]: https://github.com/rspec/rspec-rails
+[testing rails]: https://gumroad.com/l/testing-rails
 [capybara]: https://github.com/jnicklas/capybara
 
