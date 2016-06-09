@@ -12,7 +12,7 @@ As was mentioned, the application does work, but we have a bunch of untested cod
 
 
 ### Testing Configuration
-Our application's testing setup has been configured to differ from the Rails convention.  We're testing our application with RSpec rather than the default Test Unit.  Our app uses the [rspec-rails][rspec-rails] gem, which provides some methods and RSpec matchers specific to testing a Rails app.  We also use [Capybara][].
+Our application's testing setup has been configured to differ from the Rails convention.  We're testing our application with RSpec rather than the Rails default, Minitest.  Our app uses the [rspec-rails][rspec-rails] gem, which provides some methods and RSpec matchers specific to testing a Rails app.  We also use [Capybara][].
 
 
 ## Releases
