@@ -105,13 +105,11 @@ end
 ### Release 4: Feature Specs
 Feature specs mimic an actual user visiting our site and using our application.  Each feature spec describes a user interacting with our application through the browser for a specific purpose (e.g., registering a new account).  In our application, we might have feature tests for seeing a list of recent games on the homepage, playing a new game, deleting a game, etc.
 
+We rely on the [Capybara][] gem to mimic using our application in a browser.  Capybara provides methods for simulating a user interacting with our site: `visit` for visiting a page, `click_link` for clicking a link, etc. It also provides additional RSpec matchers like `have_content` for testing the text visible on a page.  Read through the docs to discover what all is available to us.
+
 Feature specs are saved in the `spec/features` directory.  We have a few different files, each describing a different feature of our application.  Write out the pending tests to describe how our application works as users interact with it.
 
 Run the feature specs with `bundle exec rake spec:features`.
-
-***Capybara for Feature Specs***  
-`rspec-rails` provides us with methods and matchers for testing many parts of our Rails apps, but when it comes to writing feature specs, we'll rely on the [Capybara][] gem.  Capybara provides both methods for simulating a user interacting with our site (e.g., `visit`, `click_link`) and also additional RSpec matchers (e.g., `have_content`).  Read through the docs to discover what all is available to us.
-
 
 ***Controlling Objects' Behaviors in Tests***  
 When we test how our application behaves when a user plays a game, we'll test what happens with a user wins and when a user loses.  When we create the new game, we can control the user throw by what we click on.  But that doesn't control the computer throw.
