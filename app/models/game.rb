@@ -13,43 +13,36 @@ class Game < ActiveRecord::Base
   validates :winner, presence: true,
     inclusion: { in: PLAYERS, message: "%{value} is not a valid player" }
 
-  before_validation :throw_for_computer!, on: :create
+  before_validation :throw_for_computer, on: :create
 
   def winner
-    if throw_beats?(computer_throw, user_throw)
-      'computer'
-    else
-      'user'
-    end
+    return "user" if user_throw_beats_computer_throw?
+    return "computer"
   end
 
   def winner_throw
-    case winner
-    when "user"
-      user_throw
-    when "computer"
-      computer_throw
-    end
+    return user_throw if user_won?
+    return computer_throw
   end
 
   def loser_throw
-    case winner
-    when "user"
-      computer_throw
-    when "computer"
-      user_throw
-    end
+    return computer_throw if user_won?
+    return user_throw
   end
 
-  def throw_for_computer!
+  def throw_for_computer
     self.computer_throw ||= THROWS.sample
   end
 
+  def user_won?
+    user_throw_beats_computer_throw?
+  end
+
   private
-  def throw_beats?(first_throw, other_throw)
-    return true if first_throw == 'paper' && other_throw == 'rock'
-    return true if first_throw == 'scissors' && other_throw == 'paper'
-    return true if first_throw == 'rock' && other_throw == 'scissors'
+  def user_throw_beats_computer_throw?
+    return true if user_throw == 'paper' && computer_throw == 'rock'
+    return true if user_throw == 'scissors' && computer_throw == 'paper'
+    return true if user_throw == 'rock' && computer_throw == 'scissors'
     false
   end
 end
