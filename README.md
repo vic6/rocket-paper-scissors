@@ -1,7 +1,7 @@
 # Rock, Paper, Scissors!
 
 ## Summary
-We going to build a test suite for an already functioning Rails application.  We'll learn to test the different parts of a Rails app—both what to test and how to test them.  While we normally encourage a test-first approach, in this challenge, we'll be learning to write tests by documenting the behaviors of a working application.
+We're going to build a test suite for an already functioning Rails application.  We'll learn to test the different parts of a Rails app—both what to test and how to test them.  While we normally encourage a test-first approach, in this challenge, we'll be learning to write tests by documenting the behaviors of a working application.
 
 The application allows users to play the game "Rock, Paper, Scissors".  The user chooses to throw rock, paper, or scissors; the computer makes a random throw; and we determine the winner.
 
