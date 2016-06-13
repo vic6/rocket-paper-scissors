@@ -1,8 +1,7 @@
 # Rock, Paper, Scissors!
 
 ## Summary
-
-We going to build a test suite for an already functioning Rails application.  We'll learn to test the different parts of a Rails ap – both what to test and how to test them.  While we encourage a test-first approach when _adding_ features, in your career it's much more likely that you'll be extending or fixing bugs on **existing** software. Knowing how to **document** the current functionality with a test and then **demonstrate** your code's efficacy is a great way to show new team members your conscientiousness and to get feedback on how to improve your approach.
+We going to build a test suite for an already functioning Rails application.  We'll learn to test the different parts of a Rails app—both what to test and how to test them.  While we normally encourage a test-first approach, in this challenge, we'll be learning to write tests by documenting the behaviors of a working application.
 
 The application allows users to play the game "Rock, Paper, Scissors".  The user chooses to throw rock, paper, or scissors; the computer makes a random throw; and we determine the winner.
 
@@ -147,6 +146,8 @@ There are many resources available for learning to test Rails apps, including bo
 
  - [Request Specs and Capybara][railscasts capybara]
  - [How I Test][railscasts how i test]
+
+As noted in the *Summary*, we encourage a test-first approach to development.  In our careers, it's more likely that we'll be extending or fixing bugs on existing software than adding brand new features. Documenting our code's current functionality with tests is a great way to show team members our conscientiousness and to get feedback on how to improve our approach.
 
 
 [controller specs]: https://github.com/rspec/rspec-rails#controller-specs
