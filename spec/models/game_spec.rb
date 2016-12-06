@@ -4,6 +4,7 @@ describe Game do
   let(:game) { Game.new }
 
   describe ".recent" do
+    it 'displays a list of recent games'
     pending
   end
 
@@ -58,7 +59,23 @@ describe Game do
 
   describe "#user_throw" do
     describe "validations" do
-      pending
+      it "is valid when user throws rock" do
+        game.user_throw = 'rock'
+        game.valid?
+        expect(game.errors[:user_throw]).to be_empty
+      end
+
+      it "is valid when user throws paper" do
+        game.user_throw = 'paper'
+        game.valid?
+        expect(game.errors[:user_throw]).to be_empty
+      end
+
+      it "is valid when user throws scissors" do
+        game.user_throw = 'scissors'
+        game.valid?
+        expect(game.errors[:user_throw]).to be_empty
+      end
     end
   end
 
