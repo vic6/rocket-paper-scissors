@@ -4,8 +4,11 @@ describe Game do
   let(:game) { Game.new }
 
   describe ".recent" do
-    it 'displays a list of recent games'
-    pending
+    it 'displays a list of recent games' do
+      Game.create(computer_throw: 'rock', user_throw: 'paper')
+
+      expect(Game.recent.count).to eq 1
+    end
   end
 
   describe "#throw_for_computer" do
@@ -87,7 +90,12 @@ describe Game do
       expect(game.winner).to eq "computer"
     end
 
-    it "user is the winner when the user throw beats the computer throw"
+    it "user is the winner when the user throw beats the computer throw" do
+      game.user_throw = 'rock'
+      game.computer_throw = 'scissors'
+
+      expect(game.winner).to eq 'user'
+    end
   end
 
   describe "#winner_throw" do
@@ -107,12 +115,27 @@ describe Game do
   end
 
   describe "#loser_throw" do
-    it "returns the user throw when the computer wins"
+    it "returns the user throw when the computer wins" do
+      game.user_throw = 'paper'
+      game.computer_throw = 'scissors'
 
-    it "returns the computer throw when the user wins"
+      expect(game.loser_throw).to eq game.user_throw
+    end
+
+    it "returns the computer throw when the user wins" do
+      game.user_throw = 'rock'
+      game.computer_throw = 'scissors'
+
+      expect(game.loser_throw).to eq(game.computer_throw)
+    end
   end
 
   describe "#user_won?" do
-    pending
+    it 'returns true if user has won' do
+      game.user_throw = 'rock'
+      game.computer_throw = 'scissors'
+
+      expect(game.user_won?).to be(true)
+    end
   end
 end

@@ -39,6 +39,7 @@ class Game < ActiveRecord::Base
   end
 
   private
+  
   def user_throw_beats_computer_throw?
     return true if user_throw == 'paper' && computer_throw == 'rock'
     return true if user_throw == 'scissors' && computer_throw == 'paper'
