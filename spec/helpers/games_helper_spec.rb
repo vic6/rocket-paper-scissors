@@ -29,9 +29,21 @@ describe GamesHelper do
 
   describe "#result_for_user_throw" do
     context "when the user won the game" do
-      it "returns 'covers' when the user threw paper"
-      it "returns 'cut' when the user threw scissors"
-      it "returns 'crushes' when the user threw rock"
+      it "returns 'covers' when the user threw paper" do
+        game = Game.new(user_throw: "paper", computer_throw: "rock")
+
+        expect(result_for_user_throw(game)).to eq 'covers'
+      end
+
+      it "returns 'cut' when the user threw scissors" do
+        game = Game.new(user_throw: 'scissors', computer_throw: 'paper')
+        expect(result_for_user_throw(game)).to eq 'cut'
+      end
+      it "returns 'crushes' when the user threw rock" do
+      game = Game.new(user_throw: 'rock', computer_throw: 'scissors')
+
+        expect(result_for_user_throw(game)).to eq 'crushes'
+      end
     end
 
     context "when the computer won the game" do
