@@ -83,7 +83,19 @@ describe GamesHelper do
   end
 
   describe "#throw_fa_icon" do
-    pending
+    it "returns 'fa-hand-rock-o' if throw is 'rock'" do
+      expect(throw_fa_icon('rock')).to eq('fa-hand-rock-o')
+    end
+
+    it "returns 'fa-hand-stop-o' if throw is 'paper'" do
+      expect(throw_fa_icon('paper')).to eq('fa-hand-stop-o')
+    end
+
+    it "returns 'fa-hand-scissors-o' if throw is 'scissors'" do
+      expect(throw_fa_icon('scissors')).to eq('fa-hand-scissors-o')
+    end
+
+
   end
 
 end
