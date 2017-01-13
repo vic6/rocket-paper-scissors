@@ -4,9 +4,15 @@ describe GamesController do
   let!(:game) { Game.create!(user_throw: Game::THROWS.sample) }
 
   describe "GET #index" do
-    it "responds with status code 200"
+    it "responds with status code 200" do
+      get :index
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
 
-    it "assigns the recent games as @games"
+    it "assigns the recent games as @games" do
+      expect(@games.recent.count).to be 1
+    end
 
     it "renders the :index template"
   end
